@@ -4,7 +4,12 @@
     "manifest_version": 3,
     "description": "Adds more functionality to the old in-need-of-an-update WCA website",
     "author": "IceCreamSandwch",
-    "omnibox": { "keyword": "wca" },
+    "omnibox": { 
+      "keyword": "wca",
+      "defaultSuggestion": {
+        "description": "Space to see commands"
+      }
+    },
     "background": {
       "service_worker": "addressBar.js"
     },

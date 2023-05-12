@@ -1,4 +1,4 @@
-const init = function(){
+const init = async function(){
   const style = document.createElement('style');
   //gets rid of the pesky border around personal records
   //
@@ -21,8 +21,47 @@ const init = function(){
   //     background-color: #ab303000
   // }
     
+//cool upcoming comps
+const img = document.querySelector('#person > div:nth-child(1) > div.text-center > img');
+const wcaId = document.querySelector("#person > div:nth-child(1) > div.details > div.bootstrap-table > div.fixed-table-container > div.fixed-table-body > table > tbody > tr > td:nth-child(2)").textContent;
+console.log(wcaId)
+var myHeaders = new Headers();
+myHeaders.append("authorization", "Bearer BmLD01VzI77Xm6KOggYb9sJl2cMcBGCCYFfkAbRkKC8");
+myHeaders.append("content-type", "application/json");
+
+var raw = JSON.stringify({
+  "sqlQuery": `SELECT name AS competition, countryid, start_date AS date FROM Competitions WHERE id IN (SELECT competitionid FROM Results WHERE personid = '${wcaId}}' UNION SELECT r.competition_id FROM registrations r JOIN Competitions c ON r.competition_id = c.id WHERE r.user_id = (SELECT id FROM users WHERE wca_id = '${wcaId}') AND c.start_date > CURRENT_DATE() AND r.accepted_at IS NOT NULL AND r.deleted_at IS NULL) AND start_date > CURRENT_DATE() ORDER BY start_date;`,
+  "page": 0,
+  "size": 100
+});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+const res = await fetch("https://statistics-api.worldcubeassociation.org/database/query", requestOptions);
+const response = await res.json();
+const table = response.content.map(row => ({
+  Competition: row[0],
+  Country: row[1],
+  Date: row[2]
+}));
+
+console.table(table, ['Competition', 'Country', 'Date']);
 
 
+
+// img.appendChild(upcomingComps);
+
+//get token
+
+
+
+
+//bottom of page text
     const injectElement = document.createElement('div');
     injectElement.className = 'lol-element';
     injectElement.innerHTML = 'Yo whaddup 😎'
