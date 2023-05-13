@@ -11,7 +11,7 @@
       }
     },
     "background": {
-      "service_workers": ["addressBar.js","background.js"]
+      "service_worker": "addressBar.js"
     },
     "action": {
       "default_title": "Popup",
