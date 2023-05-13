@@ -11,7 +11,7 @@
       }
     },
     "background": {
-      "service_worker": "addressBar.js"
+      "service_workers": ["addressBar.js","background.js"]
     },
     "action": {
       "default_title": "Popup",
@@ -42,6 +42,8 @@
       "https://algs.vercel.app/api"
     ],
     "permissions": [
-      "storage"
+      "storage",
+      "alarms",
+      "notifications"
     ]    
 }

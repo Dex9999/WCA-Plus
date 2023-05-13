@@ -456,4 +456,3 @@ async function searchWca(event, region, type){
     return baseUrl
    
   }
-  

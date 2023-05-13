@@ -73,16 +73,11 @@ const wcaId = document.querySelector("#person > div:nth-child(1) > div.details >
 
 console.log(wcaId)
 
-var tokenOptions = {
-  method: 'GET',
-  redirect: 'follow'
-};
+var token = await chrome.storage.sync.get(['token']);
+console.log(token.token);
 
-var bearToken = await fetch("https://algs.vercel.app/api", tokenOptions)
-let token = await (await bearToken.text()).toString();
-console.log(token)
 var myHeaders = new Headers();
-myHeaders.append("authorization", token);
+myHeaders.append("authorization", token.token);
 myHeaders.append("content-type", "application/json");
 
 var raw = JSON.stringify({
