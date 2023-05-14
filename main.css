@@ -8,6 +8,10 @@
     --accent: #a439d1;
 }
 
+:root{
+    --txtfont: 'Josefin Sans', sans-serif;
+}
+
 /* Bloo */
 
 /* :root {
@@ -16,6 +20,16 @@
     --primary: #1a1d21;
     --secondary: #006eff;
     --accent: #0094ff;
+} */
+
+/* Google */
+
+/* :root {
+    --txtcolor: #4285F4;
+    --bgcolor: #ffffff;
+    --primary: #34A853;
+    --secondary: #FBBC05;
+    --accent: #EA4335;
 } */
 
 /* Blood */
@@ -70,11 +84,12 @@
 
 body {
     /* background-image: linear-gradient(#000000, #ff7000) !important; */
-    background-color: #FF7000;
+    background-color: var(--bgcolor) !important;
     height: 100vh !important;
     margin: 0 !important;
     background-repeat: no-repeat !important;
     background-attachment: fixed !important;
+    font: 400 15px/1.8 --txtfont !important;
 }
 
 .nav-tabs>li.active>a, .nav-tabs>li.panel-warning.active>.heading-as-link:hover, .nav-tabs>li.panel-info.active>.heading-as-link:hover, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
