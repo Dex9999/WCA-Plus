@@ -1,0 +1,91 @@
+/* default */
+:root {
+    --txtcolor: #ffffff;
+    --bgcolor: #2c2c2c;
+    /* --bgcolor: #000000; */
+    --primary: #ff7b00;
+    --secondary: #006eff;
+    --accent: #a439d1;
+}
+
+/* Bloo */
+
+/* :root {
+    --txtcolor: #ffffff;
+    --bgcolor: #0e0f12;
+    --primary: #1a1d21;
+    --secondary: #006eff;
+    --accent: #0094ff;
+} */
+
+/* Blood */
+
+/* :root {
+    --txtcolor: #efefef;
+    --bgcolor: #101010;
+    --primary: #ce1c1b;
+    --secondary: #000000;
+    --accent: #ce1b1b;
+} */
+
+/* Codepen */
+
+/* :root {
+    --txtcolor: #ffffff;
+    --bgcolor: #131417;
+    --primary: #47cf73;
+    --secondary: #4444857;
+    --accent: #ffdd40;
+} */
+
+/* Terminal */
+
+/* :root {
+    --txtcolor: #ffffff;
+    --bgcolor: #131417;
+    --primary: #47cf73;
+    --secondary: #4444857;
+    --accent: #ffdd40;
+} */
+
+@media screen and (max-width: 2000px) {
+    .table-responsive {
+        border: 1px solid transparent !important;
+    }
+
+    .table>thead>tr>th,
+    .table>thead>tr>td,
+    .table>tbody>tr>th,
+    .table>tbody>tr>td,
+    .table>tfoot>tr>th,
+    .table>tfoot>tr>td {
+        border-top: 1px solid transparent !important;
+    }
+
+    .table>thead>tr>th {
+        vertical-align: bottom;
+        border-bottom: 0px solid transparent !important;
+    }
+}
+
+body {
+    /* background-image: linear-gradient(#000000, #ff7000) !important; */
+    background-color: #FF7000;
+    height: 100vh !important;
+    margin: 0 !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.panel-warning.active>.heading-as-link:hover, .nav-tabs>li.panel-info.active>.heading-as-link:hover, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    color: #FFFFFF !important;
+    cursor: default;
+    background-color: #181818 !important;
+    border: 1px solid #0d0d0d !important;
+    border-bottom-color: transparent;
+}
+
+.nav>li>a:hover, .nav>li.panel-warning>.heading-as-link:hover, .nav>li.panel-info>.heading-as-link:hover, .nav>li>a:focus, .nav>li>a.StripeElement--focus {
+    text-decoration: none;
+    background-color: #ffffff !important;
+}

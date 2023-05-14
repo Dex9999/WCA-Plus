@@ -1,36 +1,31 @@
-const init = async function () {
-    const style = document.createElement('style');
-    // gets rid of the pesky border around personal records
-    //
-    document.addEventListener('DOMContentLoaded', function () {
-        getToken();
-    });
+var style = getComputedStyle(document.body)
+const txtColor = style.getPropertyValue('--txtcolor')
+const bgColor = style.getPropertyValue('--bgcolor')
+const primaryColor = style.getPropertyValue('--primary')
+const secondaryColor = style.getPropertyValue('--secondary')
+const accentColor = style.getPropertyValue('--accent')
 
-    style.textContent = `
-    @media screen and (max-width: 2000px) {
-      .table-responsive {
-          border: 1px solid transparent;
-      }
+console.log('Text Color:', txtColor);
+console.log('Background Color:', bgColor);
+console.log('Primary Color:', primaryColor);
+console.log('Secondary Color:', secondaryColor);
+console.log('Accent Color:', accentColor);
 
-    .table>thead>tr>th,.table>thead>tr>td,.table>tbody>tr>th,.table>tbody>tr>td,.table>tfoot>tr>th,.table>tfoot>tr>td {
-        border-top: 1px solid transparent;
-    }
-    .table>thead>tr>th {
-        vertical-align: bottom;
-        border-bottom: 0px solid transparent;
-    }
-  }`;
-    document.head.appendChild(style);
+const init = async function() {
     // table,#person table,table.wca-results {
     //     background-color: #ab303000
     // }
 
     // bottom of page text
+    getToken();
+
     const injectElement = document.createElement('div');
     injectElement.className = 'lol-element';
     injectElement.innerHTML = 'Yo whaddup 😎'
 
     document.body.appendChild(injectElement);
+
+    //gold silver bronze colours
     let elements = document.getElementsByClassName("world-rank ")
     Array.from(elements).forEach(element => {
         let ele = parseInt(element.innerHTML)
@@ -45,36 +40,23 @@ const init = async function () {
             element.style.backgroundColor = '#a05d00';
         }
     });
-    const bod = document.body.style;
-    bod.backgroundImage = 'linear-gradient(#000000, #ff7000)';
-    bod.backgroundColor = '#FF7000';
-    bod.height = '100vh';
-    bod.margin = '0';
-    bod.backgroundRepeat = 'no-repeat';
-    bod.backgroundAttachment = 'fixed';
+    
 
-    // console.log(elements[0])
-    // let firstElement = elements[0]
-    // chrome.storage.sync.set({"rank": firstElement.innerHTML}).catch(() => {});
-    // test
-    const rows = document.querySelectorAll('#person > div.personal-records > div > table > tbody > tr');
-    for (let i = 0; i < rows.length; i++) {
-        if (i % 2 === 0) {
-            rows[i].style.background = 'linear-gradient(#a349d1, #ff7000)';
-        } else {
-            rows[i].style.background = 'linear-gradient(#a349d1, #189ad3)';
-        }
-    }
-
-
+    // table alternating colours
+    // const rows = document.querySelectorAll('#person > div.personal-records > div > table > tbody > tr');
+    // for (let i = 0; i < rows.length; i++) {
+    //     if (i % 2 === 0) {
+    //         rows[i].style.background = 'linear-gradient(#a349d1, #ff7000)';
+    //     } else {
+    //         rows[i].style.background = 'linear-gradient(#a349d1, #189ad3)';
+    //     }
+    // }
     const profileRow = document.querySelector('#person > div:nth-child(1) > div.details > div.bootstrap-table > div.fixed-table-container > div.fixed-table-body > table > tbody > tr');
     profileRow.style.background = 'linear-gradient(315deg, #550577, #5400FF'
 
-    // cool upcoming comps
+    // cool upcoming comps table
     const img = document.querySelector('#person > div:nth-child(1) > div.text-center > img');
     const wcaId = document.querySelector("#person > div:nth-child(1) > div.details > div.bootstrap-table > div.fixed-table-container > div.fixed-table-body > table > tbody > tr > td:nth-child(2)").textContent;
-
-    console.log(wcaId)
 
     var token = await getToken();
     console.log(token);
@@ -113,11 +95,13 @@ const init = async function () {
             const text = document.createTextNode(key);
 
             th.style.border = '2.25px solid';
-            th.style.borderColor = '#AD91FF';
+            th.style.borderColor = txtColor;
             th.style.padding = '10px';
             th.style.textAlign = 'center'; // added
             th.style.fontWeight = 'bold';
             th.style.fontSize = '1.3rem';
+            th.style.color = txtColor;
+
 
             th.appendChild(text);
             row.appendChild(th);
@@ -129,24 +113,24 @@ const init = async function () {
                 const cell = row.insertCell();
                 const text = document.createTextNode(value);
                 cell.style.border = '2.25px solid';
-                cell.style.borderColor = '#AD91FF';
+                cell.style.borderColor = txtColor;
                 cell.style.padding = '10px';
+                cell.style.color = txtColor;
                 cell.appendChild(text);
             });
 
         });
         table.style.border = '1px solid';
-        table.style.borderColor = '#AD91FF';
-        table.style.color = '#000000';
+        table.style.borderColor = txtColor;
+        table.style.color = bgColor;
         table.style.width = '80%';
         table.style.textAlign = 'center';
         table.style.marginLeft = 'auto';
         table.style.marginRight = 'auto';
         table.style.padding = '10px';
-        // table.style.backgroundColor = '#2a2c30';
         const caption = table.createCaption();
         caption.textContent = 'Upcoming Competitions';
-        caption.style.color = 'black';
+        caption.style.color = txtColor;
         caption.style.textAlign = 'center';
         caption.style.fontWeight = 'bold';
         caption.style.fontSize = '2rem';
@@ -167,14 +151,6 @@ const init = async function () {
     console.table(table, ['Competition', 'Country', 'Date']);
     }
 
-    // img.appendChild(upcomingComps);
-
-    // get token
-
-
-}
-init();
-
 // .table>thead>tr>th {
 //     vertical-align: bottom;
 //     border-bottom: 2px solid #147311
@@ -183,15 +159,16 @@ init();
 // .table-striped>tbody>tr:nth-of-type(odd) {
 //     background-color: #000000;
 // }
-
-
-async function getToken() { // Get token from storage
+  }
+  init()
+//wca database query stuff
+async function getToken() {
     const {token} = await chrome.storage.sync.get('token');
     console.log(token);
 
     // If token is somehow null, update it manually
-    //this takes a while, so it's better to just update it in the background
-    //but it's here just in case
+    // this takes a while, so it's better to just update it in the background
+    // but it's here just in case
     if (!token) {
         try {
             const bearToken = await fetch("https://algs.vercel.app/api", {
