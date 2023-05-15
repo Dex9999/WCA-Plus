@@ -40,19 +40,6 @@ const init = async function() {
             element.style.backgroundColor = '#a05d00';
         }
     });
-    
-
-    // table alternating colours
-    // const rows = document.querySelectorAll('#person > div.personal-records > div > table > tbody > tr');
-    // for (let i = 0; i < rows.length; i++) {
-    //     if (i % 2 === 0) {
-    //         rows[i].style.background = 'linear-gradient(#a349d1, #ff7000)';
-    //     } else {
-    //         rows[i].style.background = 'linear-gradient(#a349d1, #189ad3)';
-    //     }
-    // }
-    const profileRow = document.querySelector('#person > div:nth-child(1) > div.details > div.bootstrap-table > div.fixed-table-container > div.fixed-table-body > table > tbody > tr');
-    profileRow.style.background = 'linear-gradient(315deg, #550577, #5400FF'
 
     // cool upcoming comps table
     const img = document.querySelector('#person > div:nth-child(1) > div.text-center > img');

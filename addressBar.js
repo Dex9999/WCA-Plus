@@ -468,8 +468,7 @@ async function searchWca(event, region, type) {
 }
 
 chrome.alarms.onAlarm.addListener(async a => {
-    console.log('Alarm! Alarm!', a);
-    chrome.tabs.create({url: "http://www.stackoverflow.com"});
+    console.log('Token Automatically Updated!', a);
     // cool token stuff
     await updateToken();
 });
