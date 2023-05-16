@@ -168,6 +168,71 @@ body {
     filter: invert();
 }
 
+body footer.ui.segment.vertical, html footer.ui.segment.vertical {
+    background-color: var(--accent) !important;
+    /* border-top: 1px solid #673AB7; */
+}
+
+body footer.ui.segment.vertical a, html footer.ui.segment.vertical a {
+    color: var(--txtcolor) !important;
+}
+
+table.table.floatThead thead th,#person table.table.floatThead thead th {
+    background-color: var(--secondary) !important;
+}
+
+@media (min-width: 768px) {
+    .tab-pane {
+        border: 1px solid transparent;
+    }
+}
+
+.event-checkbox input[type="checkbox"]:checked+i.cubing-icon, .event-checkbox input[type="radio"]:checked+i.cubing-icon, .event-radio input[type="checkbox"]:checked+i.cubing-icon, .event-radio input[type="radio"]:checked+i.cubing-icon {
+    color: var(--accent);
+}
+.event-checkbox input[type="checkbox"]+i.cubing-icon, .event-checkbox input[type="radio"]+i.cubing-icon, .event-radio input[type="checkbox"]+i.cubing-icon, .event-radio input[type="radio"]+i.cubing-icon {
+    color: var(--txtcolor);
+}
+
+a {
+    color: var(--txtcolor) !important;
+}
+a:hover {
+    color: var(--txtcolor);
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.panel-warning.active>.heading-as-link:hover, .nav-tabs>li.panel-info.active>.heading-as-link:hover, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    background-color: var(--accent);
+}
+
+.nav-tabs-justified>.active>a, .nav-tabs-justified>.panel-warning.active>.heading-as-link:hover, .nav-tabs-justified>.panel-info.active>.heading-as-link:hover, .nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.panel-warning.active>.heading-as-link:hover, .nav-tabs.nav-justified>.panel-info.active>.heading-as-link:hover, .nav-tabs-justified>.active>a:hover, .nav-tabs-justified>.active>a:focus {
+    border-bottom-color: var(--txtcolor);
+}
+
+.nav-tabs-justified>.active>a, .nav-tabs-justified>.panel-warning.active>.heading-as-link:hover, .nav-tabs-justified>.panel-info.active>.heading-as-link:hover, .nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.panel-warning.active>.heading-as-link:hover, .nav-tabs.nav-justified>.panel-info.active>.heading-as-link:hover, .nav-tabs-justified>.active>a:hover, .nav-tabs-justified>.active>a:focus {
+    border: 1px solid var(--txtcolor);
+}
+
+/* rainbow text for 1st rank */
+/* #person .personal-records table td.record {
+    animation: color-change 1s infinite;
+  }
+  
+  @keyframes color-change {
+    0% { color: red; }
+    12.5% { color: orange; }
+    25% { color: yellow; }
+    37.5% { color: green; }
+    50% { color: blue; }
+    62.5% { color: #a439d1; }
+    75% { color: magenta; }
+    100% { color: white; }
+} */
+/* Diamond text for 1st as alternative */
+/* #person .personal-records table td.record {
+    color: #00f5ff !important;
+  } */
+
 /* .nav-tabs>li.active>a, .nav-tabs>li.panel-warning.active>.heading-as-link:hover, .nav-tabs>li.panel-info.active>.heading-as-link:hover, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
     color: var(--txtcolor) !important;
     cursor: default;
