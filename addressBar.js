@@ -3,7 +3,15 @@ chrome.omnibox.onInputChanged.addListener((text, suggest) => {
     var description = args.length > 3 ? "Too many inputs (max 3)" : "Rankings Command Format: event, region, type";
     chrome.omnibox.setDefaultSuggestion({description: description});
 
-    suggest([
+    var suggestions = [
+        {
+            content: 'person '+(args[1] || ''),
+            description: "Go to a Person by WCA ID: "+(args[1]||'')
+        },
+        {
+            content: 'search '+(args[1]||''),
+            description: "Search Command: search "+(args[1]||'')
+        },
         {
             content: "stats",
             description: "Statistics Page Command: stats"
@@ -19,15 +27,27 @@ chrome.omnibox.onInputChanged.addListener((text, suggest) => {
         {
             content: "forum",
             description: "Forum Command: forum"
-        }, {
+        },
+        {
             content: "regs",
             description: "Regulations Command: regs"
         }
-        // add person maybe
-    ]);
+    ];
+
+    // Sort suggestions based on relevance
+    suggestions.sort((a, b) => {
+        var relevanceA = a.description.toLowerCase().indexOf(text.toLowerCase());
+        var relevanceB = b.description.toLowerCase().indexOf(text.toLowerCase());
+        return relevanceB - relevanceA;
+    });
+
+    suggest(suggestions);
 });
 
+
 chrome.omnibox.onInputEntered.addListener(async (text) => {
+    var request = text.split(' ')
+    var link = ''
     if (text.startsWith('stat')) {
         chrome.tabs.update({url: 'https://statistics.worldcubeassociation.org/'});
         return;
@@ -43,9 +63,13 @@ chrome.omnibox.onInputEntered.addListener(async (text) => {
     } else if (text.startsWith('reg')) {
         chrome.tabs.update({url: 'https://www.worldcubeassociation.org/regulations/'});
         return;
+    } else if (text.startsWith('person')) {
+        chrome.tabs.update({url: 'https://www.worldcubeassociation.org/persons/'+request[1]});
+        return;
+    } else if (text.startsWith('search')) {
+        chrome.tabs.update({url: 'https://www.worldcubeassociation.org/search?q='+request[1]});
+        return;
     } else if (text) {
-        var request = text.split(' ')
-        var link = ''
         if (request.length == 3) {
             link = await searchWca(request[0].toLowerCase(), request[1].toLowerCase(), request[2].toLowerCase())
             console.log(link.toString())

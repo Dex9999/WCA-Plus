@@ -245,3 +245,28 @@ a:hover {
     text-decoration: none;
     background-color: var(--accent) !important;
 } */
+#person .personal-records table td.country-rank {
+    opacity: 1 !important;
+}
+
+#person .personal-records table td.continent-rank {
+    opacity: 1 !important;
+}
+
+@keyframes rainbow-shadow {
+    0% {
+      box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px #0ba9ca, 0 0 30px #0ba9ca, 0 0 40px #0ba9ca, 0 0 50px #0ba9ca;
+    }
+    25% {
+      box-shadow: 0 0 2px #0ba9ca, 0 0 10px #0ba9ca, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000;
+    }
+    50% {
+      box-shadow: 0 0 2px #ff0000, 0 0 10px #ff0000, 0 0 20px #ffff00, 0 0 30px #ffff00, 0 0 40px #ffff00, 0 0 50px #ffff00;
+    }
+    75% {
+      box-shadow: 0 0 2px #ffff00, 0 0 10px #ffff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00, 0 0 50px #00ff00;
+    }
+    100% {
+      box-shadow: 0 0 2px #00ff00, 0 0 10px #00ff00, 0 0 20px #0ba9ca, 0 0 30px #0ba9ca, 0 0 40px #0ba9ca, 0 0 50px #0ba9ca;
+    }
+}

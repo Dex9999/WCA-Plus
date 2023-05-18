@@ -19,32 +19,80 @@ const init = async function() {
     // bottom of page text
     getToken();
 
-    const injectElement = document.createElement('div');
-    injectElement.className = 'lol-element';
-    injectElement.innerHTML = 'Yo whaddup 😎'
+    // const injectElement = document.createElement('div');
+    // injectElement.className = 'lol-element';
+    // injectElement.innerHTML = 'Yo whaddup 😎'
 
-    document.body.appendChild(injectElement);
+    // document.body.appendChild(injectElement);
 
     //gold silver bronze colours
-    let elements = document.getElementsByClassName("world-rank ")
+    let elements = document.querySelectorAll(".world-rank, .country-rank, .continent-rank");
     Array.from(elements).forEach(element => {
-        let ele = parseInt(element.innerHTML)
-        if (ele < 20) {
-            element.style.backgroundColor = '#bf8c00';
-            if (ele == 1) {
-                element.style.color = '#FFFFFF'
-            }
-        } else if (ele > 20 && ele < 50) {
-            element.style.backgroundColor = '#7d7d7d';
-        } else if (ele > 50 && ele < 100) {
-            element.style.backgroundColor = '#a05d00';
-        }
+    let ele = parseInt(element.innerHTML);
+    if (ele < 20) {
+        element.style.backgroundColor = '#bf8c00';
+        if (ele == 1) {
+        element.style.color = 'lightblue';
+    }
+    } else if (ele > 20 && ele < 50) {
+        element.style.backgroundColor = '#7d7d7d';
+    } else if (ele > 50 && ele < 100) {
+        element.style.backgroundColor = '#a05d00';
+    }
     });
+    let rows = document.querySelectorAll('div.personal-records table.table-striped tbody tr');
+Array.from(rows).forEach((row,index) => {
+    let worldRank = parseInt(row.querySelector('.world-rank').innerHTML);
+    let continentRank = parseInt(row.querySelector('.continent-rank').innerHTML);
+    let countryRank = parseInt(row.querySelector('.country-rank').innerHTML);
+    let secWorldRank = parseInt(row.querySelectorAll('.world-rank')[1].innerHTML);
+    let secContinentRank = parseInt(row.querySelectorAll('.continent-rank')[1].innerHTML);
+    let secCountryRank = parseInt(row.querySelectorAll('.country-rank')[1].innerHTML);
+    
+    console.log(worldRank, continentRank, countryRank);
+    console.log(secWorldRank, secContinentRank, secCountryRank);
+    console.log(index);
+
+    let element;
+
+    if (worldRank === 1) {
+        element = row.querySelector('.world-rank')
+    } else if (continentRank === 1) {
+        element = row.querySelector('.continent-rank')
+    } else if (countryRank === 1) {
+        element = row.querySelector('.country-rank')
+
+    }
+
+    if (element) {
+        element.style.zIndex = '9999';
+        element.style.animation = 'rainbow-shadow 5s infinite linear';
+    }
+
+    let selement;
+
+    if (secWorldRank === 1) {
+        selement = row.querySelectorAll('.world-rank')[1]
+    } else if (secContinentRank === 1) { 
+        selement = row.querySelectorAll('.continent-rank')[1]
+    } else if (secCountryRank === 1) {
+        selement = row.querySelectorAll('.country-rank')[1]
+    } 
+
+    if (selement) {
+        selement.style.zIndex = '9999';
+        selement.style.animation = 'rainbow-shadow 5s infinite linear';
+    }
+});
+
+
+
+
 
     // cool upcoming comps table
     const img = document.querySelector('#person > div:nth-child(1) > div.text-center > img');
-    const wcaId = document.querySelector("#person > div:nth-child(1) > div.details > div.bootstrap-table > div.fixed-table-container > div.fixed-table-body > table > tbody > tr > td:nth-child(2)").textContent;
-
+    const wcaId = document.querySelector('#person > div:nth-child(1) > div.details > div.bootstrap-table > div.fixed-table-container > div.fixed-table-body > table > tbody > tr > td > div > div:nth-child(2) > span.value').textContent;
+    console.log(wcaId);
     var token = await getToken();
     console.log(token);
 
