@@ -91,7 +91,17 @@ Array.from(rows).forEach((row,index) => {
 
     // cool upcoming comps table
     const img = document.querySelector('#person > div:nth-child(1) > div.text-center > img');
-    const wcaId = document.querySelector('#person > div:nth-child(1) > div.details > div.bootstrap-table > div.fixed-table-container > div.fixed-table-body > table > tbody > tr > td > div > div:nth-child(2) > span.value').textContent;
+    //get text of element
+    const desktop = "#person > div:nth-child(1) > div.details > div.bootstrap-table > div.fixed-table-container > div.fixed-table-body > table > tbody > tr > td:nth-child(2)";
+    const mobile = "#person > div:nth-child(1) > div.details > div.bootstrap-table > div.fixed-table-container > div.fixed-table-body > table > tbody > tr > td > div > div:nth-child(2) > span.value"
+    
+    let wcaId = document.querySelector(desktop)?.textContent;
+    
+    if (wcaId === null) {
+        // get text of the span element
+      wcaId = document.querySelector(mobile)?.textContent;
+    }
+
     console.log(wcaId);
     var token = await getToken();
     console.log(token);
@@ -196,6 +206,68 @@ Array.from(rows).forEach((row,index) => {
 // }
   }
   init()
+//card hover effect
+// make sure to keep the avatar class but append the card class for the effect
+var cards = document.querySelectorAll('.avatar');
+
+
+
+
+cards.forEach(function(card) {
+  card.addEventListener('mousemove', handleMove);
+  card.addEventListener('mouseout', handleMouseOut);
+
+  setInterval(function() {
+    if (!card.classList.contains('hovered')) {
+      spinCard(card);
+    }
+    //set it for a random time between 15 and 60 seconds
+  }, Math.floor(Math.random() * 45000) + 15000);
+    // run on page load
+    setTimeout(function() {
+        spinCard(card);
+    }, 100);
+
+});
+
+function handleMove(e) {
+  var card = this;
+  var rect = card.getBoundingClientRect();
+  var cardCenterX = rect.left + rect.width / 2;
+  var cardCenterY = rect.top + rect.height / 2;
+  var mouseX = e.pageX;
+  var mouseY = e.pageY;
+
+  var tiltX = (cardCenterX - mouseX) / (card.offsetWidth / 2) * -13;
+  var tiltY = (cardCenterY - mouseY) / (card.offsetHeight / 2) * 13;
+  var scale = 1.05;
+
+  card.style.transition = "";
+  card.style.transform = `perspective(1000px) rotateX(${tiltY}deg) rotateY(${tiltX}deg) scale(${scale})`;
+
+}
+
+function handleMouseOut() {
+  var card = this;
+  card.style.transform = "";
+  card.classList.remove('hovered');
+}
+
+var rotationY = 0;
+function spinCard(card) {
+  rotationY += 360;
+  card.style.transition = "transform 0.75s";
+  card.style.transform = `perspective(1000px) rotateY(${rotationY}deg)`;
+  setTimeout(function() {
+    card.style.transition = "";
+  }, 1000);
+}
+
+function getRandomInterval(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+
 //wca database query stuff
 async function getToken() {
     const {token} = await chrome.storage.sync.get('token');

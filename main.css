@@ -78,7 +78,7 @@
 
     .table>thead>tr>th {
         vertical-align: bottom;
-        border-bottom: 0px solid transparent !important;
+        border-bottom: 1px solid transparent !important;
     }
 }
 
@@ -188,7 +188,7 @@ table.table.floatThead thead th,#person table.table.floatThead thead th {
 }
 
 .event-checkbox input[type="checkbox"]:checked+i.cubing-icon, .event-checkbox input[type="radio"]:checked+i.cubing-icon, .event-radio input[type="checkbox"]:checked+i.cubing-icon, .event-radio input[type="radio"]:checked+i.cubing-icon {
-    color: var(--accent);
+    color: var(--accent) !important;
 }
 .event-checkbox input[type="checkbox"]+i.cubing-icon, .event-checkbox input[type="radio"]+i.cubing-icon, .event-radio input[type="checkbox"]+i.cubing-icon, .event-radio input[type="radio"]+i.cubing-icon {
     color: var(--txtcolor);
@@ -211,6 +211,23 @@ a:hover {
 
 .nav-tabs-justified>.active>a, .nav-tabs-justified>.panel-warning.active>.heading-as-link:hover, .nav-tabs-justified>.panel-info.active>.heading-as-link:hover, .nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.panel-warning.active>.heading-as-link:hover, .nav-tabs.nav-justified>.panel-info.active>.heading-as-link:hover, .nav-tabs-justified>.active>a:hover, .nav-tabs-justified>.active>a:focus {
     border: 1px solid var(--txtcolor);
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.panel-warning.active>.heading-as-link:hover, .nav-tabs>li.panel-info.active>.heading-as-link:hover, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    background-color: #f00;
+}
+
+.navbar-static-top .logo:hover {
+    background: #f0f0f000;
+}
+
+.nav-tabs-justified>.active>a, .nav-tabs-justified>.panel-warning.active>.heading-as-link:hover, .nav-tabs-justified>.panel-info.active>.heading-as-link:hover, .nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.panel-warning.active>.heading-as-link:hover, .nav-tabs.nav-justified>.panel-info.active>.heading-as-link:hover, .nav-tabs-justified>.active>a:hover, .nav-tabs-justified>.active>a:focus {
+    border-bottom-color: var(--txtcolor);
+    background: var(--accent);
+}
+
+.nav>li>a:hover, .nav>li.panel-warning>.heading-as-link:hover, .nav>li.panel-info>.heading-as-link:hover, .nav>li>a:focus, .nav>li>a.StripeElement--focus {
+    background-color: var(--secondary) !important;
 }
 
 /* rainbow text for 1st rank */
@@ -255,18 +272,55 @@ a:hover {
 
 @keyframes rainbow-shadow {
     0% {
-      box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px #0ba9ca, 0 0 30px #0ba9ca, 0 0 40px #0ba9ca, 0 0 50px #0ba9ca;
+      box-shadow: 0 0 1px #fff, 0 0 5px #fff, 0 0 10px #0ba9ca, 0 0 15px #0ba9ca, 0 0 20px #0ba9ca, 0 0 25px #0ba9ca;
     }
     25% {
-      box-shadow: 0 0 2px #0ba9ca, 0 0 10px #0ba9ca, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000;
+      box-shadow: 0 0 1px #0ba9ca, 0 0 5px #0ba9ca, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000, 0 0 25px #ff0000;
     }
     50% {
-      box-shadow: 0 0 2px #ff0000, 0 0 10px #ff0000, 0 0 20px #ffff00, 0 0 30px #ffff00, 0 0 40px #ffff00, 0 0 50px #ffff00;
+      box-shadow: 0 0 1px #ff0000, 0 0 5px #ff0000, 0 0 10px #ffff00, 0 0 15px #ffff00, 0 0 20px #ffff00, 0 0 25px #ffff00;
     }
     75% {
-      box-shadow: 0 0 2px #ffff00, 0 0 10px #ffff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00, 0 0 50px #00ff00;
+      box-shadow: 0 0 1px #ffff00, 0 0 5px #ffff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00, 0 0 25px #00ff00;
     }
     100% {
-      box-shadow: 0 0 2px #00ff00, 0 0 10px #00ff00, 0 0 20px #0ba9ca, 0 0 30px #0ba9ca, 0 0 40px #0ba9ca, 0 0 50px #0ba9ca;
+      box-shadow: 0 0 1px #00ff00, 0 0 5px #00ff00, 0 0 10px #0ba9ca, 0 0 15px #0ba9ca, 0 0 20px #0ba9ca, 0 0 25px #0ba9ca;
     }
 }
+
+/* avatars css */
+.avatar {
+    position: relative;
+    background-color: #040712;
+    border-radius: 10px;
+    transition: transform 0.5s, box-shadow 0.5s, background-color 0.5s, opacity 0.5s; /* Add opacity transition */
+    will-change: transform, box-shadow, background-color, opacity; /* Add opacity */
+    /* make a glowing background box when not hovered */
+    box-shadow: 0 0 10px var(--accent);
+    animation: glow-border 4.5s infinite;
+    opacity: 1; /* Initial opacity */
+  }
+  
+  /* make the glowing border animation */
+  @keyframes glow-border {
+    0% {
+      box-shadow: 0 0 10px var(--accent);
+    }
+    25% {
+      box-shadow: 0 0 40px var(--accent);
+    }
+    75% {
+      box-shadow: 0 0 40px var(--accent);
+    }
+    100% {
+      box-shadow: 0 0 10px var(--accent);
+    }
+  }
+  
+  .avatar:hover {
+    transform: perspective(1000px) rotateX(0) rotateY(0) scale(1.05);
+    box-shadow: 0 0 150px var(--accent);
+    /* make the animation stop when hovered */
+    animation: none;
+  }
+  
