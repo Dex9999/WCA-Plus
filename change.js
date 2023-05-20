@@ -1,3 +1,5 @@
+//add currently broken filters
+
 var style = getComputedStyle(document.body)
 const txtColor = style.getPropertyValue('--txtcolor')
 const bgColor = style.getPropertyValue('--bgcolor')
@@ -12,31 +14,25 @@ const accentColor = style.getPropertyValue('--accent')
 // console.log('Accent Color:', accentColor);
 
 const init = async function() {
-    // table,#person table,table.wca-results {
-    //     background-color: #ab303000
-    // }
-
-    // bottom of page text
     getToken();
 
     // const injectElement = document.createElement('div');
     // injectElement.className = 'lol-element';
     // injectElement.innerHTML = 'Yo whaddup 😎'
-
     // document.body.appendChild(injectElement);
 
     //gold silver bronze colours
     let elements = document.querySelectorAll(".world-rank, .country-rank, .continent-rank");
     Array.from(elements).forEach(element => {
     let ele = parseInt(element.innerHTML);
-    if (ele < 20) {
+    if (ele <= 20) {
         element.style.backgroundColor = '#bf8c00';
         if (ele == 1) {
         element.style.color = 'lightblue';
     }
-    } else if (ele > 20 && ele < 50) {
+    } else if (ele > 20 && ele <= 50) {
         element.style.backgroundColor = '#7d7d7d';
-    } else if (ele > 50 && ele < 100) {
+    } else if (ele > 50 && ele <= 100) {
         element.style.backgroundColor = '#a05d00';
     }
     });
@@ -130,7 +126,9 @@ Array.from(rows).forEach((row,index) => {
       noComps.style.textAlign = 'center';
       noComps.style.fontWeight = 'bold';
       appendTable = document.querySelector("#person > div:nth-child(1) > div.details")
-      appendTable.appendChild(noComps);
+      try {
+        appendTable.appendChild(noComps);
+      } catch (error) {}
     } else {
     const table = response.content.map(row => ({Competition: row[0], Country: row[1], Date: row[2]}));
     const createTable = (data) => {
@@ -176,6 +174,8 @@ Array.from(rows).forEach((row,index) => {
         table.style.marginLeft = 'auto';
         table.style.marginRight = 'auto';
         table.style.padding = '10px';
+        table.style.maxWidth = '80vw';
+        table.style.overflow = 'auto';
         const caption = table.createCaption();
         caption.textContent = 'Upcoming Competitions';
         caption.style.color = txtColor;
@@ -184,7 +184,7 @@ Array.from(rows).forEach((row,index) => {
         caption.style.fontSize = '2rem';
         caption.style.marginBottom = '10px';
 
-        table.appendChild(header); // added
+        table.appendChild(header);
 
         table.appendChild(tbody);
         return table;

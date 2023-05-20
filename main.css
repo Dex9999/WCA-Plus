@@ -25,11 +25,11 @@
 /* Google */
 
 /* :root {
-    --txtcolor: #4285F4;
+    --txtcolor: #EA4335;
     --bgcolor: #ffffff;
     --primary: #34A853;
     --secondary: #FBBC05;
-    --accent: #EA4335;
+    --accent: #4285F4;
 } */
 
 /* Blood */
@@ -52,15 +52,36 @@
     --accent: #ffdd40;
 } */
 
+/* Lollipop */
+
+/* :root {
+    --txtcolor: #000000;
+    --bgcolor: #ffffff;
+    --primary: #0049db;
+    --secondary: #f2f2f2;
+    --accent: #ff6bc1;
+} */
+
+/* Sage */
+
+/* :root {
+    --txtcolor: #000000;
+    --bgcolor: #e7e7d7;
+    --primary: #006338;
+    --secondary: #deded0;
+    --accent: #006338;
+} */
+
 /* Terminal */
 
 /* :root {
-    --txtcolor: #ffffff;
-    --bgcolor: #131417;
-    --primary: #47cf73;
-    --secondary: #4444857;
-    --accent: #ffdd40;
+    --txtcolor: #eeeeee;
+    --bgcolor: #000000;
+    --primary: #44d62c;
+    --secondary: #222222;
+    --accent: #44d62c;
 } */
+
 
 @media screen and (max-width: 2000px) {
     .table-responsive {
@@ -93,6 +114,10 @@ body {
     color: var(--txtcolor) !important;
 }
 
+::selection {
+    background: var(--accent) !important;
+  }
+
 .table-striped>tbody>tr:nth-of-type(odd) {
     background-color: var(--primary) !important;
 }
@@ -115,13 +140,13 @@ body {
 }
 
 .navbar-static-top .navbar-nav>li>a.top-nav:hover, .navbar-static-top .navbar-nav>li.panel-info>.top-nav.heading-as-link:hover, .navbar-static-top .navbar-nav>li.panel-warning>.top-nav.heading-as-link:hover {
-    background: var(--secondary) !important;
+    background: linear-gradient(to bottom, var(--accent), var(--secondary)) !important;
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.panel-warning.active>.heading-as-link:hover, .navbar-default .navbar-nav>.panel-info.active>.heading-as-link:hover, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
     color: var(--txtcolor) !important;
-    background-color: invert(var(--txtcolor)) !important;
-    filter: invert();
+    background: linear-gradient(to bottom, var(--accent), var(--secondary)) !important;
+    /* filter: invert(); */
 }
 .navbar-default .navbar-nav>li>a, .navbar-default .navbar-nav>li.panel-warning>.heading-as-link:hover, .navbar-default .navbar-nav>li.panel-info>.heading-as-link:hover {
     color: var(--txtcolor) !important;
@@ -144,6 +169,10 @@ body {
 .ui.default.dropdown:not(.button)>.text, .ui.dropdown:not(.button)>.default.text {
     color: var(--txtcolor) !important;
 }
+.ui.selection.active.dropdown, .ui.selection.active.dropdown .menu {
+    border-color: var(--secondary) !important;
+}
+
 .ui.selection.dropdown {
     background: transparent !important;
     border: 3px solid calc(255 - var(--txtcolor)) !important;
@@ -164,8 +193,8 @@ body {
 }
 .dropdown-menu>li>a:hover,.dropdown-menu>li.panel-warning>.heading-as-link:hover,.dropdown-menu>li.panel-info>.heading-as-link:hover,.dropdown-menu>li>a:focus,.dropdown-menu>li>a.StripeElement--focus {
     color: var(--txtcolor) !important;
-    background: linear-gradient(to bottom, var(--secondary), var(--secondary)) !important;
-    filter: invert();
+    background: linear-gradient(to bottom, var(--accent), var(--secondary)) !important;
+    /* filter: invert(); */
 }
 
 body footer.ui.segment.vertical, html footer.ui.segment.vertical {
@@ -193,12 +222,25 @@ table.table.floatThead thead th,#person table.table.floatThead thead th {
 .event-checkbox input[type="checkbox"]+i.cubing-icon, .event-checkbox input[type="radio"]+i.cubing-icon, .event-radio input[type="checkbox"]+i.cubing-icon, .event-radio input[type="radio"]+i.cubing-icon {
     color: var(--txtcolor);
 }
+i.emphasized.icon:not(.disabled), i.emphasized.icons:not(.disabled), i.icon:active, i.icon:hover, i.icons:active, i.icons:hover {
+    opacity: 0.6 !important;
+}
 
+/* super annoying thing because its every f ing link not a certain group */
 a {
     color: var(--txtcolor) !important;
 }
 a:hover {
     color: var(--txtcolor);
+}
+/* better a, third is comp links in results */
+#person > div.personal-records > div > table > tbody > tr > td.average > a,
+#person > div.personal-records > div > table > tbody > tr > td.single > a,
+#results-by-event > div > div.table-responsive > table > tbody > tr > td.competition > a{
+    color: var(--txtcolor) !important;
+}
+#results-by-event > div > div.table-responsive > table > tbody > tr > td.competition > a:hover {
+    filter: brightness(0.5);
 }
 
 .nav-tabs>li.active>a, .nav-tabs>li.panel-warning.active>.heading-as-link:hover, .nav-tabs>li.panel-info.active>.heading-as-link:hover, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
@@ -207,6 +249,7 @@ a:hover {
 
 .nav-tabs-justified>.active>a, .nav-tabs-justified>.panel-warning.active>.heading-as-link:hover, .nav-tabs-justified>.panel-info.active>.heading-as-link:hover, .nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.panel-warning.active>.heading-as-link:hover, .nav-tabs.nav-justified>.panel-info.active>.heading-as-link:hover, .nav-tabs-justified>.active>a:hover, .nav-tabs-justified>.active>a:focus {
     border-bottom-color: var(--txtcolor);
+    color: var(--txtcolor) !important;
 }
 
 .nav-tabs-justified>.active>a, .nav-tabs-justified>.panel-warning.active>.heading-as-link:hover, .nav-tabs-justified>.panel-info.active>.heading-as-link:hover, .nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.panel-warning.active>.heading-as-link:hover, .nav-tabs.nav-justified>.panel-info.active>.heading-as-link:hover, .nav-tabs-justified>.active>a:hover, .nav-tabs-justified>.active>a:focus {
@@ -220,67 +263,337 @@ a:hover {
 .navbar-static-top .logo:hover {
     background: #f0f0f000;
 }
+.btn-danger:hover, .panel-warning>.btn-danger.heading-as-link:hover, .panel-info>.btn-danger.heading-as-link:hover, .panel-warning.panel-info>.heading-as-link:hover {
+    color: var(--txtcolor) !important;
+    background-color: #c9462c;
+}
 
-.nav-tabs-justified>.active>a, .nav-tabs-justified>.panel-warning.active>.heading-as-link:hover, .nav-tabs-justified>.panel-info.active>.heading-as-link:hover, .nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.panel-warning.active>.heading-as-link:hover, .nav-tabs.nav-justified>.panel-info.active>.heading-as-link:hover, .nav-tabs-justified>.active>a:hover, .nav-tabs-justified>.active>a:focus {
+.nav-tabs-justified > .active > a,
+.nav-tabs-justified > .panel-warning.active > .heading-as-link,
+.nav-tabs-justified > .panel-info.active > .heading-as-link,
+.nav-tabs.nav-justified > .active > a,
+.nav-tabs.nav-justified > .panel-warning.active > .heading-as-link,
+.nav-tabs.nav-justified > .panel-info.active > .heading-as-link {
     border-bottom-color: var(--txtcolor);
-    background: var(--accent);
+    background: var(--accent) !important;
+    color: var(--txtcolor) !important;
 }
 
-.nav>li>a:hover, .nav>li.panel-warning>.heading-as-link:hover, .nav>li.panel-info>.heading-as-link:hover, .nav>li>a:focus, .nav>li>a.StripeElement--focus {
-    background-color: var(--secondary) !important;
+/* i hate the nav tab */
+.nav > li.panel-warning > .heading-as-link:hover,
+.nav > li.panel-info > .heading-as-link:hover,
+.nav > li > a.StripeElement--focus,
+.nav > li > a:not([aria-expanded="true"]):hover,
+.nav > li > a:not([aria-expanded="true"]):focus,
+.nav > li.panel-warning > a:not([aria-expanded="true"]):hover,
+.nav > li.panel-info > a:not([aria-expanded="true"]):hover {
+    background: var(--secondary) !important;
+}
+.nav > li:not(.active) > a:not([aria-expanded="false"]):hover {
+    background: var(--bgcolor) !important;
+    border-bottom-color: var(--txtcolor) !important;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.panel-warning.active > .heading-as-link:hover,
+.nav-tabs > li.panel-info.active > .heading-as-link:hover,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    border-bottom-color: var(--txtcolor) !important;
 }
 
+
+/* pbs */
 #person .results-by-event table th.pb, #person .results-by-event table td.pb {
-    color: #00f7ff;
+    color: #00f7ff !important;
     background-color: #a200ff;
 }
-
+/* hover prs */
 .plain:hover {
-    /* dim text */
     filter: brightness(0.5);
 }
 
-#results-by-event > div > div.table-responsive > table > tbody.event-333 > tr > td.competition > a:hover {
-    /* dim text */
-    filter: brightness(0.5);
+
+#person .results-by-event table.highlight-gold tr.gold-place, #person .results-by-event table.highlight-silver tr.silver-place, #person .results-by-event table.highlight-bronze tr.bronze-place {
+  background: #bf8c00 !important;
 }
 
-#results-by-event > div > div.table-responsive > table > tbody.event-clock > tr.result.gold-place {
-    background: #bf8c00 !important;
+#person .results-by-event table.highlight-silver tr.silver-place {
+    background-color: #7d7d7d !important;
 }
 
-/* rainbow text for 1st rank */
-/* #person .personal-records table td.record {
-    animation: color-change 1s infinite;
-  }
-  
-  @keyframes color-change {
-    0% { color: red; }
-    12.5% { color: orange; }
-    25% { color: yellow; }
-    37.5% { color: green; }
-    50% { color: blue; }
-    62.5% { color: #a439d1; }
-    75% { color: magenta; }
-    100% { color: white; }
-} */
-/* Diamond text for 1st as alternative */
-/* #person .personal-records table td.record {
-    color: #00f5ff !important;
-  } */
+#person .results-by-event table.highlight-bronze tr.bronze-place {
+    background-color: #a05d00 !important;
+}
 
-/* .nav-tabs>li.active>a, .nav-tabs>li.panel-warning.active>.heading-as-link:hover, .nav-tabs>li.panel-info.active>.heading-as-link:hover, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+#person .wc-podiums table .result td.place {
     color: var(--txtcolor) !important;
-    cursor: default;
-    background-color: var(--accent) !important;
-    border: 1px solid #0d0d0d !important;
-    border-bottom-color: transparent;
-} */
+}
 
-/* .nav>li>a:hover, .nav>li.panel-warning>.heading-as-link:hover, .nav>li.panel-info>.heading-as-link:hover, .nav>li>a:focus, .nav>li>a.StripeElement--focus {
-    text-decoration: none;
+/* map */
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background: var(--bgcolor) !important;
+    box-shadow: 0 9px 6px rgba(0,0,0,.4) !important;
+    color: var(--txtcolor) !important;
+}
+
+.leaflet-container .leaflet-control-attribution {
+    background: var(--bgcolor) !important;
+}
+
+.leaflet-bar a {
     background-color: var(--accent) !important;
-} */
+}
+
+/* gold silve bronze nums */
+#person > div.row > div.col-md-6.medal-collection > table > tbody > tr > td > a:hover{
+    filter: brightness(0.5);
+}
+
+body > div > div.navbar-collapse.collapse.disabled > ul:nth-child(1) > li.top-nav.logo > a:hover, body > div > div.navbar-collapse.collapse.disabled > ul:nth-child(1) > li.top-nav.logo:hover {
+    background: none !important;
+}
+
+
+/* WCA HOMEPAGE */
+.ui.card, .ui.cards>.card {
+    background: var(--bgcolor) !important;
+}
+
+.ui.card>.content>.header, .ui.cards>.card>.content>.header {
+    color: var(--txtcolor) !important;
+}
+
+.ui.card>.content>.description, .ui.cards>.card>.content>.description {
+    color: var(--txtcolor)  !important;
+    filter: brightness(0.8) !important;
+}
+
+.ui.primary.button, .ui.primary.buttons .button, .ui.blue.button, .ui.blue.buttons .button {
+    background-color: var(--primary) !important;
+    color: var(--txtcolor) !important;
+}
+
+#homepage #content-homepage .ui.vertical.stripe.news-content {
+    background-color: var(--bgcolor) !important;
+}
+element.style {
+    color: var(--txtcolor) !important;
+}
+.ui.header {
+    color: var(--txtcolor) !important;
+}
+.ui.items>.item .extra {
+    color: var(--txtcolor)  !important;
+    filter: brightness(0.5) !important;
+}
+.ui.items>.item>.content>.description {
+    color: var(--txtcolor) !important;
+}
+
+#content-homepage > div.ui.container.fluid > div > div.column.red > div > p > a, #content-homepage > div.ui.container.fluid > div > div.column.red > div > a, #content-homepage > div.ui.container.fluid > div > div.column.yellow > div > a, #content-homepage > div.ui.container.fluid > div > div.column.red > div > h2, #content-homepage > div.ui.container.fluid > div > div.column.yellow > div > h2,
+body > main > div:nth-child(3) > div > a:nth-child(1),
+body > main > div:nth-child(3) > div > a:nth-child(2) {
+    color: black !important;
+}
+
+/* fixing random pages */
+.jumbotron {
+    background-color: var(--bgcolor) !important;
+}
+#accordion > div > div > h4 > a {
+    background-color: var(--bgcolor) !important;
+}
+.teams-committees .team .acronym {
+    color: var(--txtcolor);
+    filter: brightness(0.7);
+}
+.organizations-list {
+    background: white;
+}
+.organizations-list .organization-box a, .organizations-list .organization-box .panel-info>.heading-as-link:hover, .organizations-list .organization-box .panel-warning>.heading-as-link:hover {
+    display: inline-block;
+    position: relative;
+    height: 120px;
+    min-width: 120px;
+    color: #292729 !important;
+}
+
+.list-group-item {
+    background-color: var(--bgcolor) !important;
+    border: 1px solid var(--accent)  !important;
+}
+
+.wca-autocomplete.selectize-control::before {
+    color: var(--txtcolor) !important;
+    opacity: 0.85 !important;
+}
+#faq-list > li:nth-child(3) > div > div > div > div.selectize-input.items.not-full,
+#website_contact_name,
+#website_contact_your_email,
+#website_contact_message,
+#target_competition > div > div.selectize-input.items.not-full{    
+    background: var(--accent) !important;
+}
+
+.form-control, .incident-form .nested-fields .comments-input, .StripeElement--focus {
+    color: var(--txtcolor) !important;
+}
+
+.selectize-dropdown, .selectize-dropdown.form-control, .incident-form .nested-fields .selectize-dropdown.comments-input {
+    background: var(--accent) !important;
+}
+.btn-primary {
+    color: var(--txtcolor) !important;
+    background-color: var(--primary) !important;
+    border-color: transparent !important;
+}
+
+.panel {
+    background-color: var(--bgcolor) !important;
+}
+.panel-default>.panel-heading {
+    color: var(--txtcolor) !important;
+    background-color: var(--accent) !important;
+    border-color: var(--txtcolor) !important;
+}
+
+.btn-info {
+    color: var(--txtcolor) !important;
+    background-color: var(--accent) !important;
+    border-color: transparent !important;
+}
+.btn-info:active:hover, .panel-warning>.heading-as-link:active:hover, .panel-info>.heading-as-link:active:hover, .btn-info:active:focus, .StripeElement--focus:active, .btn-info.focus:active, .btn-info.active:hover, .panel-warning>.active.heading-as-link:hover, .panel-info>.active.heading-as-link:hover, .panel-warning.panel-info>.heading-as-link:hover, .btn-info.active:focus, .active.StripeElement--focus, .btn-info.active.focus, .open>.btn-info.dropdown-toggle:hover, .panel-warning.open>.dropdown-toggle.heading-as-link:hover, .panel-info.open>.dropdown-toggle.heading-as-link:hover, .open>.btn-info.dropdown-toggle:focus, .open>.dropdown-toggle.StripeElement--focus, .open>.btn-info.dropdown-toggle.focus,
+.btn-info:hover, .panel-warning>.btn-info.heading-as-link:hover, .panel-info>.btn-info.heading-as-link:hover, .panel-warning.panel-info>.heading-as-link:hover,
+.btn-primary:hover, .panel-warning>.btn-primary.heading-as-link:hover, .panel-info>.btn-primary.heading-as-link:hover, .panel-warning.panel-info>.heading-as-link:hover {
+    filter: brightness(0.8) !important;
+}
+
+.selectize-input, .selectize-control.single .selectize-input.input-active {
+    background: var(--bgcolor) !important;
+}
+#delegate > div > div.selectize-input.items.not-full > input[type=text]{
+    color: var(--txtcolor) !important;
+}
+
+.competitions-table tr.not-past.confirmed {
+    background-color: #2F3136 !important;
+}
+.panel {
+    border: transparent;
+}
+.panel-heading .collapse-indicator {
+    color: var(--txtcolor) !important;
+}
+.form-control, .incident-form .nested-fields .comments-input, .StripeElement--focus {
+    background-color: var(--bgcolor) !important;
+}
+
+.text-muted, table.wca-results tbody tr td.region.tied-previous, #person table.wca-results tbody tr td.region.tied-previous, table.wca-results tbody tr td.event.tied-previous, #person table.wca-results tbody tr td.event.tied-previous, table.wca-results tbody tr td.type.tied-previous, #person table.wca-results tbody tr td.type.tied-previous, table.wca-results tbody tr td.pos.tied-previous, #person table.wca-results tbody tr td.pos.tied-previous {
+    color: #00f7ff !important;
+    background-color: #a200ff !important;
+}
+#results-selector #event .all-events, #results-selector #region .all-events, #results-selector #type .all-events, #results-selector #years .all-events, #results-selector #show .all-events, #results-selector #gender .all-events {
+    background-color: var(--accent) !important;
+}
+
+.btn-default {
+    color: var(--txtcolor) !important;
+    background-color: var(--accent) !important;
+    border-color: var(--txtcolor) !important;
+}
+.table-hover>tbody>tr:nth-of-type(even):hover, .table-hover>tbody.panel-warning>tr.heading-as-link:hover, .table-hover>tbody.panel-info>tr.heading-as-link:hover, .table-hover>tbody.panel-warning.panel-info>.heading-as-link:hover {
+    background-color: transparent !important;
+}
+.table-hover>tbody>tr:hover, .table-hover>tbody.panel-warning>tr.heading-as-link:hover, .table-hover>tbody.panel-info>tr.heading-as-link:hover, .table-hover>tbody.panel-warning.panel-info>.heading-as-link:hover {
+    background-color: transparent;
+}
+table.table th .sortable.desc::after, #person table.table th .sortable.desc::after,
+table.table th .sortable.asc::after, #person table.table th .sortable.asc::after {
+    color: var(--accent) !important;
+}
+
+pre {
+    color: var(--txtcolor) !important;
+    background-color: var(--bgcolor) !important;
+}
+code {
+    background-color: var(--bgcolor) !important;
+}
+
+
+/* remember to fix more links later !!!! */
+/* do incidents log */
+/* do wca stats */
+a, a:hover {
+    color: var(--primary) !important;
+}
+
+/* live */
+.css-1bkfitl {
+    background-color: var(--accent);
+}
+
+/* forums */
+#main {
+    background-color: var(--bgcolor) !important;
+}
+
+/* button spacing and formatting*/
+#results-selector > div:nth-child(4),
+#results-selector > div:nth-child(5),
+#results-selector > div:nth-child(6),
+#results-selector > div:nth-child(7){
+    margin: 0.40rem !important;
+}
+.btn-primary {
+    border: 0px !important;
+    color: var(--txtcolor) !important;
+    background: var(--accent) !important;
+    border-radius: 0.5rem !important;
+}
+.btn {
+    border: 0px !important;
+    color: var(--txtcolor) !important;
+    border-radius: 0.5rem !important;
+    margin: 0.20rem !important;
+}
+.btn-primary .d-icon, .btn .d-icon{
+    color: var(--txtcolor) !important;
+    margin-right: .45em;
+    transition: color .25s;
+}
+/* fix dumb buttons and links using other dumb a styles */
+#years > a:hover,  
+#gender > a.btn.btn-info.active:hover,
+#gender > a:nth-child(2):hover,
+#gender > a:nth-child(3):hover,
+#show > a.btn.btn-primary.active:hover,
+#show > a:nth-child(2):hover,
+#show > a:nth-child(3):hover,
+#show > a:nth-child(4):hover,
+#show > a:nth-child(5):hover,
+#results-list > div > table > tbody > tr > td.event > a:hover{
+    color: var(--txtcolor) !important;
+    filter:brightness(0.8) !important;
+}
+
+
+
+/* avatar  guidelines panel */
+#upload-avatar-form > div.well {
+    background-color: var(--bgcolor) !important;
+}
+
+/* fix rankings/records */
+#results-list > div > table > tbody > tr > td.name > a,
+#results-list > div > table > tbody > tr > td.competition > a {
+    color: var(--txtcolor) !important;
+}
+#results-list > div > table > tbody > tr > td.name > a:hover,
+#results-list > div > table > tbody > tr > td.competition > a:hover {
+    filter: brightness(0.5)
+}
+
 #person .personal-records table td.country-rank {
     opacity: 1 !important;
 }
