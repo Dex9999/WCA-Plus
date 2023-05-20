@@ -5,11 +5,11 @@ const primaryColor = style.getPropertyValue('--primary')
 const secondaryColor = style.getPropertyValue('--secondary')
 const accentColor = style.getPropertyValue('--accent')
 
-console.log('Text Color:', txtColor);
-console.log('Background Color:', bgColor);
-console.log('Primary Color:', primaryColor);
-console.log('Secondary Color:', secondaryColor);
-console.log('Accent Color:', accentColor);
+// console.log('Text Color:', txtColor);
+// console.log('Background Color:', bgColor);
+// console.log('Primary Color:', primaryColor);
+// console.log('Secondary Color:', secondaryColor);
+// console.log('Accent Color:', accentColor);
 
 const init = async function() {
     // table,#person table,table.wca-results {
@@ -49,9 +49,9 @@ Array.from(rows).forEach((row,index) => {
     let secContinentRank = parseInt(row.querySelectorAll('.continent-rank')[1].innerHTML);
     let secCountryRank = parseInt(row.querySelectorAll('.country-rank')[1].innerHTML);
     
-    console.log(worldRank, continentRank, countryRank);
-    console.log(secWorldRank, secContinentRank, secCountryRank);
-    console.log(index);
+    // console.log(worldRank, continentRank, countryRank);
+    // console.log(secWorldRank, secContinentRank, secCountryRank);
+    // console.log(index);
 
     let element;
 
@@ -97,12 +97,14 @@ Array.from(rows).forEach((row,index) => {
     
     let wcaId = document.querySelector(desktop)?.textContent;
     
-    if (wcaId === null) {
+    if (!wcaId) {
         // get text of the span element
       wcaId = document.querySelector(mobile)?.textContent;
+
     }
 
     console.log(wcaId);
+
     var token = await getToken();
     console.log(token);
 
@@ -146,6 +148,7 @@ Array.from(rows).forEach((row,index) => {
             th.style.fontWeight = 'bold';
             th.style.fontSize = '1.3rem';
             th.style.color = txtColor;
+            th.style.backgroundColor = accentColor;
 
 
             th.appendChild(text);
@@ -238,8 +241,8 @@ function handleMove(e) {
   var mouseX = e.pageX;
   var mouseY = e.pageY;
 
-  var tiltX = (cardCenterX - mouseX) / (card.offsetWidth / 2) * -13;
-  var tiltY = (cardCenterY - mouseY) / (card.offsetHeight / 2) * 13;
+  var tiltX = (cardCenterX - mouseX) / (card.offsetWidth / 2) * -17;
+  var tiltY = (cardCenterY - mouseY) / (card.offsetHeight / 2) * 17;
   var scale = 1.05;
 
   card.style.transition = "";
@@ -271,7 +274,7 @@ function getRandomInterval(min, max) {
 //wca database query stuff
 async function getToken() {
     const {token} = await chrome.storage.sync.get('token');
-    console.log(token);
+    // console.log(token);
 
     // If token is somehow null, update it manually
     // this takes a while, so it's better to just update it in the background

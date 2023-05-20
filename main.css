@@ -230,6 +230,25 @@ a:hover {
     background-color: var(--secondary) !important;
 }
 
+#person .results-by-event table th.pb, #person .results-by-event table td.pb {
+    color: #00f7ff;
+    background-color: #a200ff;
+}
+
+.plain:hover {
+    /* dim text */
+    filter: brightness(0.5);
+}
+
+#results-by-event > div > div.table-responsive > table > tbody.event-333 > tr > td.competition > a:hover {
+    /* dim text */
+    filter: brightness(0.5);
+}
+
+#results-by-event > div > div.table-responsive > table > tbody.event-clock > tr.result.gold-place {
+    background: #bf8c00 !important;
+}
+
 /* rainbow text for 1st rank */
 /* #person .personal-records table td.record {
     animation: color-change 1s infinite;

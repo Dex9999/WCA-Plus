@@ -4,5 +4,5 @@ chrome.storage.sync.get(["rank"], function(items){
     const newE = document.createElement('h2');
     newE.className = 'lol-element';
     newE.innerHTML = items.rank
-    document.body.appendChild(newE)
+    // document.body.appendChild(newE)
 })
