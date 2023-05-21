@@ -1,4 +1,6 @@
 //add currently broken filters
+//think about making medal times tab
+
 
 var style = getComputedStyle(document.body)
 const txtColor = style.getPropertyValue('--txtcolor')
@@ -6,7 +8,10 @@ const bgColor = style.getPropertyValue('--bgcolor')
 const primaryColor = style.getPropertyValue('--primary')
 const secondaryColor = style.getPropertyValue('--secondary')
 const accentColor = style.getPropertyValue('--accent')
-
+//fix medals?
+document.querySelectorAll('#person > div.row > div > table > tbody > tr > td > a').forEach(a => {
+    a.style.width='100%';
+  });  
 // console.log('Text Color:', txtColor);
 // console.log('Background Color:', bgColor);
 // console.log('Primary Color:', primaryColor);
@@ -101,14 +106,40 @@ Array.from(rows).forEach((row,index) => {
 
     console.log(wcaId);
 
+    if(wcaId){
+        // let wcaid be copied on click
+        const targetElement = document.querySelector('#person > div:nth-child(1) > div.details > div.bootstrap-table > div.fixed-table-container > div.fixed-table-body > table > tbody > tr > td:nth-child(2)');
+        targetElement.style.cursor = 'copy';
+        targetElement.addEventListener('click', () => {
+        navigator.clipboard.writeText(targetElement.textContent)
+            .then(() => {
+                let originalText = targetElement.textContent;
+                targetElement.textContent = 'Copied  ID   :)';
+                setTimeout(() => {
+                targetElement.textContent = originalText;
+                }, 1000);
+            })
+            .catch((error) => {
+            console.error('Failed to copy ID: ', error);
+            });
+        });
+    }
+
     var token = await getToken();
     console.log(token);
 
-    var myHeaders = new Headers();
-    myHeaders.append("authorization", token);
-    myHeaders.append("content-type", "application/json");
+    var raw = JSON.stringify({
+        "sqlQuery": `SELECT name AS competition, countryid, start_date AS date FROM Competitions WHERE id IN (SELECT competitionid FROM Results WHERE personid = '${wcaId}' UNION SELECT r.competition_id FROM registrations r JOIN Competitions c ON r.competition_id = c.id WHERE r.user_id = (SELECT id FROM users WHERE wca_id = '${wcaId}') AND c.start_date > CURRENT_DATE() AND r.accepted_at IS NOT NULL AND r.deleted_at IS NULL) AND start_date > CURRENT_DATE() ORDER BY start_date;`, 
+        "page": 0, 
+        "size": 100
+    });
 
-    var raw = JSON.stringify({"sqlQuery": `SELECT name AS competition, countryid, start_date AS date FROM Competitions WHERE id IN (SELECT competitionid FROM Results WHERE personid = '${wcaId}' UNION SELECT r.competition_id FROM registrations r JOIN Competitions c ON r.competition_id = c.id WHERE r.user_id = (SELECT id FROM users WHERE wca_id = '${wcaId}') AND c.start_date > CURRENT_DATE() AND r.accepted_at IS NOT NULL AND r.deleted_at IS NULL) AND start_date > CURRENT_DATE() ORDER BY start_date;`, "page": 0, "size": 100});
+    var myHeaders = new Headers();
+    myHeaders.append("method", "POST");
+    myHeaders.append("body", "{\"sqlQuery\":\"SELECT name AS competition, countryid, start_date AS date FROM Competitions WHERE id IN (SELECT competitionid FROM Results WHERE personid = '2016CHAP04' UNION SELECT r.competition_id FROM registrations r JOIN Competitions c ON r.competition_id = c.id WHERE r.user_id = (SELECT id FROM users WHERE wca_id = '2016CHAP04') AND c.start_date > CURRENT_DATE() AND r.accepted_at IS NOT NULL AND r.deleted_at IS NULL) AND start_date > CURRENT_DATE() ORDER BY start_date;\",\"page\":0,\"size\":100}");
+    myHeaders.append("redirect", "follow");
+    myHeaders.append("authorization", "Bearer 3N0qiqtzoUoYT3SPHUCh7RqfYc3WkG_yY3eHPEN2euU");
+    myHeaders.append("content-type", "application/json");
 
     var requestOptions = {
         method: 'POST',
@@ -116,8 +147,8 @@ Array.from(rows).forEach((row,index) => {
         body: raw,
         redirect: 'follow'
     };
-
     const res = await fetch("https://statistics-api.worldcubeassociation.org/database/query", requestOptions);
+    console.log(res)
     const response = await res.json();
     if(response.content.length == 0){
       const noComps = document.createElement('h2');
@@ -146,6 +177,7 @@ Array.from(rows).forEach((row,index) => {
             th.style.fontWeight = 'bold';
             th.style.fontSize = '1.3rem';
             th.style.color = txtColor;
+            th.style.textAlign = 'center';
             th.style.backgroundColor = accentColor;
 
 
@@ -162,6 +194,7 @@ Array.from(rows).forEach((row,index) => {
                 cell.style.borderColor = txtColor;
                 cell.style.padding = '10px';
                 cell.style.color = txtColor;
+                cell.style.textAlign = 'center';
                 cell.appendChild(text);
             });
 
@@ -193,7 +226,8 @@ Array.from(rows).forEach((row,index) => {
 
     const tableElement = createTable(table);
     tableElement.style.marginBottom = '20px';
-    appendTable = document.querySelector("#person > div:nth-child(1) > div.details")
+    // appendTable = document.querySelector("#person > div:nth-child(1) > div.details")
+    appendTable = document.querySelector("#person > div.personal-records")
     appendTable.appendChild(tableElement);
     // console.log(table[0])
     console.table(table, ['Competition', 'Country', 'Date']);

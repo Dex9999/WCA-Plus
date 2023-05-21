@@ -104,7 +104,6 @@
 }
 
 body {
-    /* background-image: linear-gradient(#000000, #ff7000) !important; */
     background-color: var(--bgcolor) !important;
     height: 100vh !important;
     margin: 0 !important;
@@ -113,6 +112,69 @@ body {
     font: 400 15px/1.8 var(--txtfont) !important;
     color: var(--txtcolor) !important;
 }
+
+/* wca stats */
+#page-container {
+    background-color: var(--bgcolor) !important;
+    color: var(--txtcolor) !important;
+}
+.ant-input {
+    font-variant: var(--txtfont) !important;
+    padding: 4px 14px !important;
+    color: var(--primary) !important;
+    background-color: var(--bgcolor) !important;
+    border: 1px solid var(--txtcolor) !important;
+    border-radius: 10px !important;
+}
+/* already good font lol */
+/* #query-input {
+    font-family: var(--txtfont) !important;
+} */
+textarea.ant-input {
+    height: 50vh;
+}
+.ant-input:hover {
+    border-color: var(--accent);
+}
+.page-title {
+    font-weight: lighter !important;
+    color: var(--txtcolor) !important;
+    margin-bottom: -1rem !important;
+}
+#database-query-wrapper > div > p {
+    filter: brightness(0.6);
+}
+/* input fields */
+.ant-input-group-addon {
+    color: var(--bgcolor) !important;
+    font-weight: bolder;
+    background-color: var(--accent) !important;
+    border: 2px solid var(--txtcolor) !important;
+    border-right: 0.1rem solid var(--txtcolor) !important;
+    border-radius: 10px;
+}
+/* make flush with id input */
+.ant-input-group-addon:last-child, .ant-input-group-addon:last-child .ant-select .ant-select-selector, .ant-input-group>.ant-input:last-child, .ant-input-group>.ant-input:last-child .ant-select .ant-select-selector {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+.ant-input-group-addon {
+    color: var(--bgcolor) !important;
+    background-color: var(--accent) !important;
+    border: 1px solid var(--txtcolor) !important;
+    border-top-left-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+}
+/* table */
+#table-header th {
+    background-color: var(--accent);
+    color: var(--txtcolor);
+}
+tbody td, tbody th, th {
+    padding: 10px 30px;
+    border: 2px solid var(--accent);
+}
+/* add export as csv feature, maybe get rid of censored values, or wiki with connected userid to regis... */
 
 ::selection {
     background: var(--accent) !important;
@@ -236,10 +298,12 @@ a:hover {
 /* better a, third is comp links in results */
 #person > div.personal-records > div > table > tbody > tr > td.average > a,
 #person > div.personal-records > div > table > tbody > tr > td.single > a,
-#results-by-event > div > div.table-responsive > table > tbody > tr > td.competition > a{
+#results-by-event > div > div.table-responsive > table > tbody > tr > td.competition > a,
+#records > div > div > table > tbody > tr > td.competition > a{
     color: var(--txtcolor) !important;
 }
-#results-by-event > div > div.table-responsive > table > tbody > tr > td.competition > a:hover {
+#results-by-event > div > div.table-responsive > table > tbody > tr > td.competition > a:hover,
+#records > div > div > table > tbody > tr > td.competition > a:hover {
     filter: brightness(0.5);
 }
 
@@ -339,12 +403,22 @@ a:hover {
 .leaflet-container .leaflet-control-attribution {
     background: var(--bgcolor) !important;
 }
-
-.leaflet-bar a {
-    background-color: var(--accent) !important;
+.leaflet-bar a{
+    background-color: var(--bgcolor) !important;
+}
+#competitions-map > div.leaflet-control-container > div.leaflet-bottom.leaflet-right > div {
+    color: var(--accent) !important;
+}
+/* maps but undo stupid a stuff */
+#competitions-map > div.leaflet-control-container > div.leaflet-top.leaflet-left > div > a{
+    color: var(--accent) !important;
 }
 
+
 /* gold silve bronze nums */
+#person > div.row > div.col-md-6.medal-collection > table > tbody > tr > td > a{
+    color: var(--txtcolor) !important;
+}
 #person > div.row > div.col-md-6.medal-collection > table > tbody > tr > td > a:hover{
     filter: brightness(0.5);
 }
@@ -352,6 +426,10 @@ a:hover {
 body > div > div.navbar-collapse.collapse.disabled > ul:nth-child(1) > li.top-nav.logo > a:hover, body > div > div.navbar-collapse.collapse.disabled > ul:nth-child(1) > li.top-nav.logo:hover {
     background: none !important;
 }
+#person > div.row > div.col-md-6.medal-collection > table > tbody > tr > td > a {
+    width: 100%;
+    display: inline-block;
+} /* make them way easier to click */
 
 
 /* WCA HOMEPAGE */
