@@ -114,6 +114,56 @@ body {
 }
 
 /* wca stats */
+.stat-card {
+    background-color: var(--bgcolor) !important;
+}
+.ant-statistic-title, #content-wrapper > div > div > div:nth-child(1) > div > div > div.ant-statistic-content{
+    color: var(--txtcolor) !important;
+    filter: brightness(0.75) !important;
+}
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-active, .ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-open, .ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-selected, .ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item:hover, .ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu-active, .ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu-open, .ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu-selected, .ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu:hover {
+    color: var(--primary) !important;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: var(--txtcolor) !important;
+}
+#top-bar > li, #top-bar > li > span.ant-menu-title-content > a, #top-bar > li:nth-child(7) > div > span > a{
+    color: var(--txtcolor) !important;
+}
+#top-bar > li:hover, #top-bar > li > span.ant-menu-title-content:hover, #top-bar > li:nth-child(7) > div > span > a:hover{
+    color: var(--primary) !important;
+}
+/* #top-bar > li, */
+ #top-bar > li > span.ant-menu-title-content > a:hover, #top-bar > li:nth-child(7) > div > span > a:hover{
+    color: inherit !important;
+}
+.ant-menu {
+    color: var(--txtcolor) !important;
+    background: var(--bgcolor)!important;
+}
+.ant-modal-content {
+    background-color: var(--bgcolor) !important;
+    color: var(--txtcolor) !important;
+    border-radius: 10px !important;
+}
+.ant-modal-header {
+    color: var(--txtcolor) !important;
+    background: var(--bgcolor) !important;
+    border-bottom: 1px solid var(--txtcolor) !important;
+    border-radius: 10px 10px 0 0;
+}
+.ant-modal-title {
+    color: var(--accent) !important;
+}
+body > div > div > div.ant-modal-wrap > div > div.ant-modal-content > div.ant-modal-body > div > div > h2  {
+    color: var(--accent) !important;
+}
+body > div:nth-child(6) > div > div.ant-modal-wrap > div > div.ant-modal-content > div.ant-modal-footer > button{
+    color: var(--bgcolor) !important;
+    background: var(--accent) !important;
+    border-color: var(--accent) !important;    
+    border-radius: 10px !important;
+}/* actual body */
 #page-container {
     background-color: var(--bgcolor) !important;
     color: var(--txtcolor) !important;
@@ -126,6 +176,28 @@ body {
     border: 1px solid var(--txtcolor) !important;
     border-radius: 10px !important;
 }
+/* i hate popup menus */
+.ant-menu-light .ant-menu-item-active, .ant-menu-light .ant-menu-item:hover, .ant-menu-light .ant-menu-submenu-active, .ant-menu-light .ant-menu-submenu-title:hover, .ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open {
+    color: var(--primary) !important;
+}
+.ant-menu-submenu:hover>.ant-menu-submenu-title>.ant-menu-submenu-arrow, .ant-menu-submenu:hover>.ant-menu-submenu-title>.ant-menu-submenu-expand-icon {
+    color: var(--primary) !important;
+}
+.ant-menu-submenu-arrow, .ant-menu-submenu-expand-icon {
+    color: var(--txtcolor) !important;
+}
+#top-bar-Competitors-popup > li {
+    color: var(--txtcolor);
+}
+.ant-menu-item a {
+    color: var(--txtcolor) !important;
+}
+.ant-menu-item a:hover {
+    color: var(--primary) !important;
+}
+#login > span > img {
+    margin-right: .4rem;
+}
 /* already good font lol */
 /* #query-input {
     font-family: var(--txtfont) !important;
@@ -137,7 +209,7 @@ textarea.ant-input {
     border-color: var(--accent);
 }
 .page-title {
-    font-weight: lighter !important;
+    /* font-weight: lighter !important; */
     color: var(--txtcolor) !important;
     margin-bottom: -1rem !important;
 }
@@ -165,19 +237,85 @@ textarea.ant-input {
     border-top-left-radius: 10px !important;
     border-bottom-left-radius: 10px !important;
 }
-/* table */
-#table-header th {
-    background-color: var(--accent);
-    color: var(--txtcolor);
+/* svgs */
+svg {
+    width: 1em;
+    height: 1em;
+    fill: var(--primary);
 }
-tbody td, tbody th, th {
-    padding: 10px 30px;
-    border: 2px solid var(--accent);
+#content-wrapper > div > div > div.ant-result-title {
+    color: var(--txtcolor) !important;
+}
+/* button */
+
+.ant-btn-primary {
+    color: var(--accent) !important;
+    border-color: var(--accent) !important;
+    background: var(--bgcolor) !important;
+    /* thing that no one will see but i still added lol if you zoom in */
+
+        text-shadow: 0 -1px 0 rgba(255,255,255,.12) !important;
+        box-shadow: 0 2px 0 rgba(255,255,255,.045) !important;
+}
+.ant-btn-primary:hover {
+    color: var(--bgcolor) !important;
+    border-color: var(--accent) !important;
+    background: var(--accent) !important;
+    /* thing that no one will see but i still added lol if you zoom in */
+
+        text-shadow: 0 -1px 0 rgba(255,255,255,.12) !important;
+        box-shadow: 0 2px 0 rgba(255,255,255,.045) !important;
+}
+/* table controls */
+.ant-pagination-next .ant-pagination-item-link, .ant-pagination-prev .ant-pagination-item-link {
+    font-size: 30px !important;
+    background-color: transparent !important;
+    border: none !important;
+}
+.ant-pagination-item {
+    background-color: transparent !important;
+    border: none !important;
+    font-size: 20px !important;
+}
+.ant-pagination-item-active {
+    font-weight: 400 !important;
+    background: var(--primary) !important;
+}
+#database-query-wrapper > ul > li.ant-pagination-item.ant-pagination-item-1.ant-pagination-item-active > a {
+    color: var(--bgcolor) !important;
+}
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    background-color: var(--bgcolor) !important;
+    color: var(--primary) !important;
+    border: 1px solid var(--primary) !important;
+    border-radius: 10px !important;
+}
+.ant-pagination, .ant-pagination ol, .ant-pagination ul {
+    margin-bottom: 15px !important;
+}
+#content-wrapper > div > div.ant-row {
+    margin: 25px !important;
+}
+/* on page active */
+.ant-menu-vertical-left .ant-menu-submenu-selected, .ant-menu-vertical-right .ant-menu-submenu-selected, .ant-menu-vertical .ant-menu-submenu-selected {
+    color: var(--primary) !important;
+}
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    color: var(--primary) !important;
+    background-color: inherit !important;
+}
+/* careful with this */
+#table-header th {
+    background-color: var(--primary) !important;
+    color: var(--txtcolor) !important;
+}
+#results-table > table > tbody > tr > td, #results-table > table > tbody > tr > th {
+    border: 2px solid var(--primary);
 }
 /* add export as csv feature, maybe get rid of censored values, or wiki with connected userid to regis... */
 
 ::selection {
-    background: var(--accent) !important;
+    background: var(--primary) !important;
   }
 
 .table-striped>tbody>tr:nth-of-type(odd) {
