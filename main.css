@@ -1,3 +1,6 @@
+/* fix SUM OF RANKS MENUS hightlight yada yada */
+/* statistics list */
+
 /* default */
 /* :root {
     --txtcolor: #ffffff;
@@ -117,7 +120,7 @@ body {
 .stat-card {
     background-color: var(--bgcolor) !important;
 }
-.ant-statistic-title, #content-wrapper > div > div > div:nth-child(1) > div > div > div.ant-statistic-content{
+.ant-statistic-title, #content-wrapper > div > div > div > div > div > div.ant-statistic-content{
     color: var(--txtcolor) !important;
     filter: brightness(0.75) !important;
 }
@@ -211,11 +214,17 @@ textarea.ant-input {
 .page-title {
     /* font-weight: lighter !important; */
     color: var(--txtcolor) !important;
-    margin-bottom: -1rem !important;
+    margin-bottom: 1rem !important;
+}
+#database-query-wrapper > div:nth-child(2) > p{
+margin-top: -1.75rem !important;
 }
 #database-query-wrapper > div > p {
     filter: brightness(0.6);
 }
+/* .ant-col-8 {
+    flex: 0 0 0% !important;
+} */
 /* input fields */
 .ant-input-group-addon {
     color: var(--bgcolor) !important;
@@ -224,6 +233,65 @@ textarea.ant-input {
     border: 2px solid var(--txtcolor) !important;
     border-right: 0.1rem solid var(--txtcolor) !important;
     border-radius: 10px;
+}
+/* highlight sor */
+.SumOfRanksPage_highlight__2OmFc {
+    background-color: #7d7d2d !important;
+}
+#content-wrapper > div > div > ul > li.ant-pagination-options > div.ant-pagination-options-quick-jumper{
+color: var(--primary) !important;
+}
+#content-wrapper > div > div > ul > li.ant-pagination-options > div.ant-pagination-options-quick-jumper > input[type=text] {
+    color: var(--primary);
+    background: var(--bgcolor);
+    border: 1px solid var(--txtcolor);
+}
+#content-wrapper > div > div > ul > li.ant-pagination-next > button,
+#content-wrapper > div > div > ul > li > a > div > span.ant-pagination-item-ellipsis{
+background: var(--bgcolor) !important;
+color: var(--primary) !important;
+border: transparent !important;
+}
+/* Best ever */
+#content-wrapper > div > table > thead > tr:nth-child(1) > td > span{
+    color: var(--primary) !important;
+    background-color: var(--bgcolor) !important;
+    border: 1px solid var(--txtcolor) !important;
+}
+#content-wrapper > div > form > div > div.ant-col.ant-col-xs-24.ant-col-md-10 > div > div > div > div > span{
+    background: var(--bgcolor) !important;
+    border: 1px solid var(--txtcolor) !important;
+}
+#content-wrapper > div > table > tbody > tr > th{
+    background: var(--bgcolor) !important;
+}
+/* record evolve */
+#content-wrapper > div > div.align-center > div > div > span.ant-select-selection-item{
+    color: var(--txtcolor) !important;
+}
+body > div > div > div{
+    background: var(--bgcolor) !important;
+}
+body > div > div > div > div > div.rc-virtual-list > div.rc-virtual-list-holder > div > div > div{
+    color: var(--txtcolor) !important;
+}
+body > div > div > div > div > div.rc-virtual-list > div.rc-virtual-list-holder > div > div > div.ant-select-item.ant-select-item-option.ant-select-item-option-active.ant-select-item-option-selected {
+    background: inherit;
+    color: var(--primary) !important;
+}
+body > div > div > div > div > div.rc-virtual-list > div.rc-virtual-list-holder > div > div > div.ant-select-item.ant-select-item-option.ant-select-item-option-active, body > div:nth-child(7) > div > div > div > div.rc-virtual-list > div.rc-virtual-list-holder > div > div > div.ant-select-item.ant-select-item-option.ant-select-item-option-selected {
+    color: var(--primary) !important;
+    background: inherit !important;
+}
+.ant-btn, .ant-btn:active, .ant-btn:focus {
+    outline: 0;
+    color: var(--primary) !important;
+    background: var(--bgcolor) !important;
+    border-color: var(--txtcolor) !important;
+}
+#content-wrapper > div > div.recharts-responsive-container > div > div.recharts-tooltip-wrapper > div{
+    background-color: var(--bgcolor) !important;
+    border: 1px solid var(--txtcolor) !important;
 }
 /* make flush with id input */
 .ant-input-group-addon:last-child, .ant-input-group-addon:last-child .ant-select .ant-select-selector, .ant-input-group>.ant-input:last-child, .ant-input-group>.ant-input:last-child .ant-select .ant-select-selector {
@@ -239,8 +307,6 @@ textarea.ant-input {
 }
 /* svgs */
 svg {
-    width: 1em;
-    height: 1em;
     fill: var(--primary);
 }
 #content-wrapper > div > div > div.ant-result-title {
@@ -266,11 +332,18 @@ svg {
         text-shadow: 0 -1px 0 rgba(255,255,255,.12) !important;
         box-shadow: 0 2px 0 rgba(255,255,255,.045) !important;
 }
+/* #content-wrapper > div > div.align-center {
+    margin: 20px !important
+} */
 /* table controls */
 .ant-pagination-next .ant-pagination-item-link, .ant-pagination-prev .ant-pagination-item-link {
     font-size: 30px !important;
     background-color: transparent !important;
     border: none !important;
+}
+#content-wrapper > div > div > ul > li.ant-pagination-next > button,
+#database-query-wrapper > ul > li.ant-pagination-next > button{
+    font-size: 30px;
 }
 .ant-pagination-item {
     background-color: transparent !important;
@@ -279,7 +352,8 @@ svg {
 }
 .ant-pagination-item-active {
     font-weight: 400 !important;
-    background: var(--primary) !important;
+    background: var(--bgcolor) !important;
+    border: 1px solid var(--primary) !important;
 }
 #database-query-wrapper > ul > li.ant-pagination-item.ant-pagination-item-1.ant-pagination-item-active > a {
     color: var(--bgcolor) !important;
@@ -296,13 +370,20 @@ svg {
 #content-wrapper > div > div.ant-row {
     margin: 25px !important;
 }
+/* bottom line in navbar */
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-active:after, .ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-open:after, .ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-selected:after, .ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item:hover:after, .ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu-active:after, .ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu-open:after, .ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu-selected:after, .ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu:hover:after {
+    border-bottom: 2px solid var(--primary) !important;
+}
 /* on page active */
 .ant-menu-vertical-left .ant-menu-submenu-selected, .ant-menu-vertical-right .ant-menu-submenu-selected, .ant-menu-vertical .ant-menu-submenu-selected {
-    color: var(--primary) !important;
+    color: inherit !important;
 }
 .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
-    color: var(--primary) !important;
+    color: inherit !important;
     background-color: inherit !important;
+}
+.ant-menu-item:active, .ant-menu-submenu-title:active {
+    background: inherit !important;
 }
 /* careful with this */
 #table-header th {
@@ -871,4 +952,3 @@ a, a:hover {
     /* make the animation stop when hovered */
     animation: none;
   }
-  
