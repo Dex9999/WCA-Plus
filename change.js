@@ -1,3 +1,4 @@
+//line 13
 //add currently broken filters
 //think about making medal times tab
 
@@ -8,6 +9,10 @@ const bgColor = style.getPropertyValue('--bgcolor')
 const primaryColor = style.getPropertyValue('--primary')
 const secondaryColor = style.getPropertyValue('--secondary')
 const accentColor = style.getPropertyValue('--accent')
+// fix dumb wca stats bg
+document.body.style.backgroundColor = bgColor;
+
+
 //fix medals?
 document.querySelectorAll('#person > div.row > div > table > tbody > tr > td > a').forEach(a => {
     a.style.width='100%';
