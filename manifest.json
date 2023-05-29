@@ -41,7 +41,13 @@
         "css": ["main.css"],
         "run_at": "document_start",
         "all_frames": false
-        }
+      },
+      {
+        "matches": ["https://*.worldcubeassociation.org/regulations/*"],
+        "css": ["target.css"],
+        "run_at": "document_start",
+        "all_frames": false
+      }
     ],
     "host_permissions": [
       "<all_urls>",

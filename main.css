@@ -1,3 +1,4 @@
+/* wpa and bpa, notify on average to watch yada yada, make regs highligh better, stats bg, all incidents, posts, search dropdowns everywhere T-T, maybe add icons to comp schedule, pr streak website, copy. wca live results as well as watch lol */
 /* line 597 */
 /* fix SUM OF RANKS MENUS hightlight yada yada */
 /* statistics list */
@@ -261,6 +262,10 @@ margin-top: -1.75rem !important;
     border-right: 0.1rem solid var(--txtcolor) !important;
     border-radius: 10px;
 }
+/* random highlights */
+#format:target,  #time-limit:target, #cutoff:target {
+    background-color: #7d7d2d !important;
+}
 /* highlight sor */
 .SumOfRanksPage_highlight__2OmFc {
     background-color: #7d7d2d !important;
@@ -481,6 +486,11 @@ svg {
 .ui.selection.active.dropdown, .ui.selection.active.dropdown .menu {
     border-color: var(--secondary) !important;
 }
+.input-group-addon {
+    color: var(--txtcolor) !important;
+    background-color: var(--accent) !important;
+    border: 1px solid var(--txtcolor) !important;
+}
 
 .ui.selection.dropdown {
     background: transparent !important;
@@ -646,13 +656,6 @@ td.competition > a:hover,
     border: 1px solid var(--txtcolor);
 }
 
-.nav-tabs>li.active>a, .nav-tabs>li.panel-warning.active>.heading-as-link:hover, .nav-tabs>li.panel-info.active>.heading-as-link:hover, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
-    background-color: #f00;
-}
-
-.navbar-static-top .logo:hover {
-    background: #f0f0f000;
-}
 .btn-danger:hover, .panel-warning>.btn-danger.heading-as-link:hover, .panel-info>.btn-danger.heading-as-link:hover, .panel-warning.panel-info>.heading-as-link:hover {
     color: var(--txtcolor) !important;
     background-color: #c9462c;
@@ -964,8 +967,20 @@ a:hover {
 
 /* live */
 .css-1bkfitl {
-    background-color: var(--accent);
+    background-color: var(--accent) !important;
 }
+/* shop */
+/* fix this later if i care enough or if anyone asks me */
+.pr_btn.btn--secondary {
+    background-color: var(--bgcolor) !important;
+    border-color: var(--txtcolor) !important;
+}
+.product-tile-title {
+    color: var(--txtcolor) !important;
+    font-size: 14px;
+}
+
+
 
 /* forums */
 #main {
@@ -1082,3 +1097,21 @@ a:hover {
     /* make the animation stop when hovered */
     animation: none;
   }
+
+#display-map {
+    border-bottom-left-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+}
+#display-list{
+    border-bottom-right-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+}
+  /* competitions pages here we go... */
+  #competition-data > div.alert.alert-info > strong{
+    color: inherit !important;
+  }
+  .nav-tabs>li.active>a, .nav-tabs>li.panel-warning.active>.heading-as-link:hover, .nav-tabs>li.panel-info.active>.heading-as-link:hover, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    background-color: var(--accent) !important;
+    border: 1px solid var(--txtcolor) !important;
+    color: var(--txtcolor) !important;
+}
