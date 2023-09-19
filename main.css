@@ -922,7 +922,8 @@ body > main > div:nth-child(3) > div > a:nth-child(2){
     background-color: var(--bgcolor) !important;
 }
 
-.text-muted, table.wca-results tbody tr td.region.tied-previous, #person table.wca-results tbody tr td.region.tied-previous, table.wca-results tbody tr td.event.tied-previous, #person table.wca-results tbody tr td.event.tied-previous, table.wca-results tbody tr td.type.tied-previous, #person table.wca-results tbody tr td.type.tied-previous, table.wca-results tbody tr td.pos.tied-previous, #person table.wca-results tbody tr td.pos.tied-previous {
+/* .text-muted, */
+table.wca-results tbody tr td.region.tied-previous, #person table.wca-results tbody tr td.region.tied-previous, table.wca-results tbody tr td.event.tied-previous, #person table.wca-results tbody tr td.event.tied-previous, table.wca-results tbody tr td.type.tied-previous, #person table.wca-results tbody tr td.type.tied-previous, table.wca-results tbody tr td.pos.tied-previous, #person table.wca-results tbody tr td.pos.tied-previous {
     color: #00f7ff !important;
     background-color: #a200ff !important;
 }
@@ -1114,4 +1115,16 @@ a:hover {
     background-color: var(--accent) !important;
     border: 1px solid var(--txtcolor) !important;
     color: var(--txtcolor) !important;
+}
+
+div.alert.alert-warning > b, div.panel-footer, div.panel-footer > strong {
+    color: black !important;
+}
+
+#omnisearch-form > div > div.visible.menu.transition {
+    background: var(--accent) !important;
+}
+
+#competition-tabs .tab-pane:target {
+    background-color: inherit !important;
 }

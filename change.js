@@ -1,7 +1,6 @@
 //line 13
 //add currently broken filters
-//think about making medal times tab
-
+//think about making medal times tab  
 
 var style = getComputedStyle(document.body)
 const txtColor = style.getPropertyValue('--txtcolor')

@@ -33,7 +33,7 @@
     "content_scripts": [
       {
       "matches": ["https://*.worldcubeassociation.org/*"],
-      "js": ["change.js", "popup.js", "applyStyles.js"],
+      "js": ["change.js", "popup.js", "applyStyles.js", "signUp.js"],
       "run_at": "document_end"
       },
       {
@@ -43,7 +43,7 @@
         "all_frames": false
       },
       {
-        "matches": ["https://*.worldcubeassociation.org/regulations/*"],
+        "matches": ["https://*.worldcubeassociation.org/*"],
         "css": ["target.css"],
         "run_at": "document_start",
         "all_frames": false

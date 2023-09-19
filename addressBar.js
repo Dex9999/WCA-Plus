@@ -5,12 +5,20 @@ chrome.omnibox.onInputChanged.addListener((text, suggest) => {
 
     var suggestions = [
         {
-            content: 'person '+(args[1] || ''),
-            description: "Go to a Person by WCA ID: "+(args[1]||'')
+            content: 'person ' + (
+                args[1] || ''
+            ),
+            description: "Go to a Person by WCA ID: " + (
+                args[1] || ''
+            )
         },
         {
-            content: 'search '+(args[1]||''),
-            description: "Search Command: search "+(args[1]||'')
+            content: 'search ' + (
+                args[1] || ''
+            ),
+            description: "Search Command: search " + (
+                args[1] || ''
+            )
         },
         {
             content: "stats",
@@ -19,16 +27,13 @@ chrome.omnibox.onInputChanged.addListener((text, suggest) => {
         {
             content: "comps",
             description: "Comps Page Command: comps"
-        },
-        {
+        }, {
             content: "live",
             description: "Live Command: live"
-        },
-        {
+        }, {
             content: "forum",
             description: "Forum Command: forum"
-        },
-        {
+        }, {
             content: "regs",
             description: "Regulations Command: regs"
         }
@@ -64,10 +69,14 @@ chrome.omnibox.onInputEntered.addListener(async (text) => {
         chrome.tabs.update({url: 'https://www.worldcubeassociation.org/regulations/'});
         return;
     } else if (text.startsWith('person')) {
-        chrome.tabs.update({url: 'https://www.worldcubeassociation.org/persons/'+request[1]});
+        chrome.tabs.update({
+            url: 'https://www.worldcubeassociation.org/persons/' + request[1]
+        });
         return;
     } else if (text.startsWith('search')) {
-        chrome.tabs.update({url: 'https://www.worldcubeassociation.org/search?q='+request[1]});
+        chrome.tabs.update({
+            url: 'https://www.worldcubeassociation.org/search?q=' + request[1]
+        });
         return;
     } else if (text) {
         if (request.length == 3) {
@@ -500,15 +509,16 @@ chrome.alarms.onAlarm.addListener(async a => {
 chrome.runtime.onInstalled.addListener(() => {
     chrome.alarms.get('alarm', async a => {
         if (!a) {
-            chrome.alarms.create('alarm', {periodInMinutes: 110}); // 110
+            chrome.alarms.create('alarm', {periodInMinutes: 110});
+            // 110
             // await updateToken();
         }
     });
 });
 
-chrome.windows.onCreated.addListener(async function(window) {
-  console.log('New window created!', window);
-  await updateToken();
+chrome.windows.onCreated.addListener(async function (window) {
+    console.log('New window created!', window);
+    await updateToken();
 });
 
 async function updateToken() {
@@ -530,3 +540,28 @@ async function updateToken() {
         console.error(error);
     }
 }
+
+// signup moment
+let enabled = false;
+
+// Listen for messages from the popup
+chrome.runtime.onMessage.addListener(function (request) {
+    enabled = request.enabled;
+});
+
+// Listen for tab updates and trigger the functionality if enabled
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+    if (changeInfo.status === 'complete' && enabled) {
+        const targetTime = '5:01'; // Set the desired time to trigger the reload and button click
+        const currentTime = new Date().toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+        if (currentTime === targetTime) {
+            chrome.tabs.reload(tabId);
+            chrome.tabs.executeScript(tabId, {file: 'signUp.js'});
+        }
+    }
+});
+
