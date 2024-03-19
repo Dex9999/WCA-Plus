@@ -142,7 +142,7 @@ Array.from(rows).forEach((row,index) => {
     myHeaders.append("method", "POST");
     myHeaders.append("body", "{\"sqlQuery\":\"SELECT name AS competition, countryid, start_date AS date FROM Competitions WHERE id IN (SELECT competitionid FROM Results WHERE personid = '2016CHAP04' UNION SELECT r.competition_id FROM registrations r JOIN Competitions c ON r.competition_id = c.id WHERE r.user_id = (SELECT id FROM users WHERE wca_id = '2016CHAP04') AND c.start_date > CURRENT_DATE() AND r.accepted_at IS NOT NULL AND r.deleted_at IS NULL) AND start_date > CURRENT_DATE() ORDER BY start_date;\",\"page\":0,\"size\":100}");
     myHeaders.append("redirect", "follow");
-    myHeaders.append("authorization", "Bearer 3N0qiqtzoUoYT3SPHUCh7RqfYc3WkG_yY3eHPEN2euU");
+    myHeaders.append("authorization", token);
     myHeaders.append("content-type", "application/json");
 
     var requestOptions = {
